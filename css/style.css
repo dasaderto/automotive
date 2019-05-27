@@ -1,0 +1,527 @@
+@font-face {
+  font-family: 'Chocolatey';
+  src: url("../fonts/QuiteChocolatey.ttf"); }
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url("../fonts/Montserrat-Regular.ttf"); }
+
+@font-face {
+  font-family: 'MontserratBold';
+  src: url("../fonts/Montserrat-Bold.ttf"); }
+
+[type="checkbox"]:not(:checked),
+[type="checkbox"]:checked {
+  position: absolute;
+  left: -9999px; }
+
+[type="checkbox"]:not(:checked) + label,
+[type="checkbox"]:checked + label {
+  position: relative;
+  padding-left: 2.5em;
+  padding-top: 0.15em;
+  cursor: pointer; }
+
+/* checkbox aspect */
+[type="checkbox"]:not(:checked) + label:before,
+[type="checkbox"]:checked + label:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1.25em;
+  height: 1.25em;
+  border: 2px solid #ccc;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); }
+
+/* checked mark aspect */
+[type="checkbox"]:not(:checked) + label:after,
+[type="checkbox"]:checked + label:after {
+  content: '\2713\0020';
+  position: absolute;
+  top: 0.25em;
+  left: .22em;
+  font-size: 1.3em;
+  line-height: 0.8;
+  color: #09ad7e;
+  transition: all .2s;
+  font-family: 'Lucida Sans Unicode', 'Arial Unicode MS', Arial; }
+
+/* checked mark aspect changes */
+[type="checkbox"]:not(:checked) + label:after {
+  opacity: 0;
+  transform: scale(0); }
+
+[type="checkbox"]:checked + label:after {
+  opacity: 1;
+  transform: scale(1); }
+
+/* disabled checkbox */
+[type="checkbox"]:disabled:not(:checked) + label:before,
+[type="checkbox"]:disabled:checked + label:before {
+  box-shadow: none;
+  border-color: #bbb;
+  background-color: #ddd; }
+
+[type="checkbox"]:disabled:checked + label:after {
+  color: #999; }
+
+[type="checkbox"]:disabled + label {
+  color: #aaa; }
+
+/* hover style just for information */
+label:hover:before {
+  border: 2px solid #4778d9 !important; }
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  color: #130e27; }
+
+button {
+  cursor: pointer; }
+
+h3, span, a {
+  font-family: 'Montserrat', sans-serif; }
+
+.bg-blue {
+  color: #130e27 !important; }
+
+.bg-red {
+  color: #c62314 !important; }
+
+ul {
+  list-style: none; }
+
+a {
+  text-decoration: none;
+  color: #fff; }
+
+.logo-brand span {
+  font-family: 'Chocolatey';
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-size: 90px; }
+
+header {
+  background: url(../img/header-bg.png) no-repeat center;
+  background-attachment: fixed;
+  background-size: cover;
+  padding: 0 85px; }
+  @media only screen and (max-width: 950px) {
+    header {
+      padding: 3% 85px; } }
+  @media only screen and (max-width: 768px) {
+    header {
+      padding: 3% 25px; } }
+  header nav {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 40px; }
+    @media only screen and (max-width: 1099px) {
+      header nav {
+        padding: 0; } }
+    header nav .navbar {
+      display: block; }
+      @media only screen and (max-width: 768px) {
+        header nav .navbar {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          width: 100%; } }
+      @media only screen and (max-width: 1099px) {
+        header nav .navbar {
+          width: 100%; } }
+      @media only screen and (max-width: 1099px) {
+        header nav .navbar .nav__logo {
+          text-align: center; } }
+      @media only screen and (max-width: 768px) {
+        header nav .navbar .nav__logo {
+          text-align: left; } }
+      header nav .navbar .nav__logo span {
+        color: #fff; }
+        @media only screen and (max-width: 768px) {
+          header nav .navbar .nav__logo span {
+            font-size: 75px; } }
+      header nav .navbar .menu-icon {
+        cursor: pointer; }
+        @media only screen and (min-width: 769px) {
+          header nav .navbar .menu-icon {
+            display: none; } }
+        @media only screen and (max-width: 768px) {
+          header nav .navbar .menu-icon {
+            display: block; } }
+        header nav .navbar .menu-icon .line {
+          height: 2px;
+          width: 40px;
+          background-color: #fff;
+          -webkit-transition: all .2s ease-in-out;
+          transition: all .2s ease-in-out; }
+          header nav .navbar .menu-icon .line:nth-child(2) {
+            margin: 7px 0;
+            width: 20px; }
+          header nav .navbar .menu-icon .line:last-child {
+            width: 30px; }
+    header nav .nav__list {
+      margin: 0;
+      transition: all 0.3s ease;
+      text-align: center; }
+      @media only screen and (max-width: 1099px) {
+        header nav .nav__list {
+          width: 100%;
+          text-align: center; } }
+      @media only screen and (max-width: 768px) {
+        header nav .nav__list {
+          max-height: 0;
+          overflow: hidden; } }
+      header nav .nav__list .nav-list__item {
+        display: inline-block;
+        text-transform: uppercase;
+        padding: 12px 15px;
+        border-radius: 4px;
+        margin: 0 4px;
+        transition: all 0.3s ease; }
+        @media only screen and (max-width: 768px) {
+          header nav .nav__list .nav-list__item {
+            display: block; } }
+        header nav .nav__list .nav-list__item a {
+          color: #fff;
+          text-transform: uppercase;
+          font-size: 18px; }
+        header nav .nav__list .nav-list__item:hover {
+          background: #130e27; }
+          header nav .nav__list .nav-list__item:hover a {
+            font-weight: bold; }
+  header .header-content {
+    position: relative; }
+    header .header-content .banner {
+      width: 55%;
+      padding: 140px 0px 140px 20px; }
+      @media only screen and (max-width: 1099px) {
+        header .header-content .banner {
+          padding: 60px 0px 60px 20px; } }
+      @media only screen and (max-width: 950px) {
+        header .header-content .banner {
+          width: 100%; } }
+      header .header-content .banner .banner-title h1 {
+        text-transform: uppercase; }
+        header .header-content .banner .banner-title h1 span {
+          font-family: "MontserratBold", sans-serif !important;
+          font-size: 90px;
+          color: white; }
+          @media only screen and (max-width: 1099px) {
+            header .header-content .banner .banner-title h1 span {
+              font-size: 70px; } }
+          @media only screen and (max-width: 950px) {
+            header .header-content .banner .banner-title h1 span {
+              font-size: 80px; } }
+          @media only screen and (max-width: 650px) {
+            header .header-content .banner .banner-title h1 span {
+              font-size: 65px; } }
+      header .header-content .banner-desc {
+        margin-top: 25px;
+        line-height: 1.7; }
+        header .header-content .banner-desc span {
+          font-size: 20px;
+          color: #fff; }
+          @media only screen and (max-width: 1099px) {
+            header .header-content .banner-desc span {
+              font-size: 16px; } }
+          @media only screen and (max-width: 950px) {
+            header .header-content .banner-desc span {
+              font-size: 18px; } }
+          @media only screen and (max-width: 650px) {
+            header .header-content .banner-desc span {
+              font-size: 15px; } }
+    header .header-content .contact-form {
+      padding: 30px 25px;
+      background: #fff;
+      border-radius: 5px;
+      width: 35%;
+      position: absolute;
+      top: 200px;
+      right: 50px;
+      box-shadow: 0px 5px 31.92px 6.08px rgba(0, 0, 0, 0.7); }
+      @media only screen and (max-width: 1099px) {
+        header .header-content .contact-form {
+          top: 100px;
+          right: 0;
+          width: 40%; } }
+      @media only screen and (max-width: 950px) {
+        header .header-content .contact-form {
+          width: 100%;
+          position: relative;
+          top: 0; } }
+      header .header-content .contact-form .form-title {
+        margin-bottom: 35px;
+        text-align: center; }
+        header .header-content .contact-form .form-title h3 {
+          text-transform: uppercase; }
+      header .header-content .contact-form form input {
+        width: 100%;
+        margin-bottom: 15px;
+        padding: 15px;
+        border-radius: 4px;
+        font-size: 18px;
+        background: #eee;
+        border: none;
+        outline-color: #b0b0b0; }
+        @media only screen and (max-width: 1099px) {
+          header .header-content .contact-form form input {
+            font-size: 14px; } }
+      header .header-content .contact-form form .accept-box {
+        margin-top: 20px;
+        text-align: center; }
+        header .header-content .contact-form form .accept-box button {
+          text-transform: uppercase;
+          letter-spacing: 2px;
+          padding: 15px 40%;
+          margin-top: 25px;
+          border: none;
+          border-radius: 4px;
+          background: #c62314;
+          color: #fff;
+          font-weight: bold;
+          font-size: 18px;
+          outline: none;
+          transition: all 0.3s ease; }
+          header .header-content .contact-form form .accept-box button:hover {
+            background: #e8200e; }
+
+main .section-title {
+  text-transform: uppercase; }
+  @media only screen and (max-width: 768px) {
+    main .section-title {
+      text-align: center; } }
+  main .section-title span {
+    font-family: "MontserratBold", sans-serif !important;
+    font-size: 50px; }
+
+main .services {
+  padding: 45px 105px 70px 105px; }
+  @media only screen and (max-width: 1099px) {
+    main .services {
+      padding: 45px 30px 70px 30px; } }
+  main .services-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 8%; }
+    main .services-content .service-card {
+      width: 25%;
+      padding: 0 15px;
+      text-align: center; }
+      @media only screen and (max-width: 768px) {
+        main .services-content .service-card {
+          width: 40%; } }
+      main .services-content .service-card .card__logo {
+        margin-bottom: 45px;
+        height: 145px; }
+      main .services-content .service-card .card__body span {
+        font-size: 20px;
+        line-height: 1.6; }
+
+main .story {
+  padding: 30px 105px;
+  background: #130e27;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+  @media only screen and (max-width: 1099px) {
+    main .story {
+      padding: 30px; } }
+  @media only screen and (max-width: 768px) {
+    main .story {
+      padding: 15px; } }
+  main .story-desc {
+    width: 56%; }
+    main .story-desc span {
+      font-size: 18px;
+      color: #fff; }
+      @media only screen and (max-width: 768px) {
+        main .story-desc span {
+          font-size: 14px; } }
+  main .story-btn {
+    width: 30%; }
+    main .story-btn button {
+      padding: 20px 20%;
+      text-transform: uppercase;
+      border-radius: 4px;
+      letter-spacing: 2px;
+      font-size: 18px;
+      background: #c62314;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      border: none;
+      outline: none;
+      color: white; }
+      @media only screen and (max-width: 768px) {
+        main .story-btn button {
+          padding: 20px 15%; } }
+      main .story-btn button:hover {
+        background: #e8200e; }
+
+main .pricing {
+  padding: 0 105px;
+  background-color: #efefef; }
+  @media only screen and (max-width: 1099px) {
+    main .pricing {
+      padding: 0; } }
+  main .pricing-title {
+    text-align: center;
+    padding: 60px 0; }
+  main .pricing-services {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; }
+    main .pricing-services__card {
+      position: relative;
+      border-radius: 5px 5px 0 0;
+      background-color: white;
+      width: 30%;
+      text-align: center;
+      padding-top: 50px; }
+      @media only screen and (max-width: 768px) {
+        main .pricing-services__card {
+          width: 85%;
+          margin: 2% auto;
+          padding: 25px 15px;
+          border-radius: 8px; } }
+      main .pricing-services__card .pricing-card__vogue .bg-triangle {
+        position: absolute;
+        top: 0;
+        left: 0;
+        border: 40px solid transparent;
+        border-left: 40px solid #c62314;
+        border-top: 40px solid #c62314;
+        border-radius: 4px 0 0 0; }
+      main .pricing-services__card .pricing-card__vogue span {
+        position: absolute;
+        top: 4%;
+        left: 0;
+        transform: rotate(-45deg);
+        font-size: 14px; }
+      main .pricing-services__card .pricing-card__type span {
+        font-size: 20px;
+        color: #130e27; }
+      main .pricing-services__card .pricing-card__cost {
+        margin: 30px 0; }
+        main .pricing-services__card .pricing-card__cost span {
+          font-family: "MontserratBold", sans-serif !important;
+          font-size: 60px;
+          color: #c62314;
+          text-transform: uppercase;
+          font-weight: bold; }
+      main .pricing-services__card .pricing-card__list li {
+        font-size: 18px;
+        line-height: 1.6;
+        text-transform: capitalize; }
+      main .pricing-services__card .pricing-card__btn button {
+        width: 65%;
+        border: none;
+        border-radius: 4px;
+        font-size: 20px;
+        color: white;
+        padding: 15px 0;
+        background: #130e27;
+        text-transform: uppercase;
+        margin-top: 60px;
+        transition: all 0.3s ease; }
+        main .pricing-services__card .pricing-card__btn button:hover {
+          background: #c62314; }
+
+main .gallery {
+  padding: 140px 105px 120px 105px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; }
+  @media only screen and (max-width: 1099px) {
+    main .gallery {
+      padding: 140px 30px 120px 30px; } }
+  @media only screen and (max-width: 768px) {
+    main .gallery {
+      padding: 30px 15px; } }
+  main .gallery-title {
+    text-align: center;
+    margin-bottom: 50px; }
+    @media only screen and (max-width: 768px) {
+      main .gallery-title {
+        margin-bottom: 20px; } }
+  main .gallery-testimonial {
+    width: 40%; }
+    @media only screen and (max-width: 768px) {
+      main .gallery-testimonial {
+        width: 95%;
+        margin: 0 auto; } }
+    main .gallery-testimonial__post {
+      position: relative;
+      padding: 25px; }
+      @media only screen and (max-width: 650px) {
+        main .gallery-testimonial__post {
+          text-align: center;
+          padding: 10px; } }
+      main .gallery-testimonial__post span {
+        display: block;
+        font-size: 18px;
+        color: #161616; }
+        @media only screen and (max-width: 950px) {
+          main .gallery-testimonial__post span {
+            font-size: 15px; } }
+      main .gallery-testimonial__post .post-author {
+        font-weight: bold;
+        color: #130e27;
+        margin-top: 25px; }
+      main .gallery-testimonial__post img {
+        position: absolute;
+        top: 10%;
+        right: -20%; }
+        @media only screen and (max-width: 768px) {
+          main .gallery-testimonial__post img {
+            top: 5%;
+            right: 0; } }
+        @media only screen and (max-width: 650px) {
+          main .gallery-testimonial__post img {
+            position: relative; } }
+    main .gallery-testimonial .bg-post {
+      background: #efefef; }
+  main .gallery-photo {
+    width: 45%;
+    text-align: center; }
+    @media only screen and (max-width: 768px) {
+      main .gallery-photo {
+        width: 90%;
+        margin: 5% auto; } }
+    main .gallery-photo__box {
+      padding: 15px; }
+  main .gallery .more {
+    padding-top: 20px; }
+    main .gallery .more a {
+      font-size: 18px;
+      text-decoration: underline;
+      text-transform: uppercase;
+      color: #130e27;
+      font-weight: bold; }
+
+footer {
+  padding: 60px 105px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #130e27; }
+  @media only screen and (max-width: 1099px) {
+    footer {
+      padding: 60px 30px; } }
+  footer .developed span {
+    color: white; }
+  footer .footer-logo .logo-brand span {
+    color: #c62314; }
